@@ -9,15 +9,16 @@ let copied = ref(false)
 
 /**
  * Function that copies a text to the clipboard and changes a reactive variable to change the svg for 2 seconds
- * @param txt the txt you want to copy
+ * @param txt - the txt you want to copy
  * @author Oriol Plazas León
  * @since 27/02/2026
  * @see navigator.clipboard.writeText()
  * @see changeSvg()
  */
 function cpText(txt: string): void {
-    navigator.clipboard.writeText(txt).then(changeSvg);
+    navigator.clipboard.writeText(txt).then(changeSvg)
 }
+
 
 /**
  * Function that changes a reactive variable to change the svg for 2 seconds

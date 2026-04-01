@@ -2,28 +2,33 @@
 import { shortenUrl } from '@/services/shortener.ts';
 import { ref } from 'vue';
 import UrlResult from './UrlResult.vue';
+import { cleanUrl } from '@/util/helpers';
 const oldUrl = ref('');
 const newUrl = ref('');
 const errorMsg = ref('');
 const isLoading = ref(false);
 
-const cleanUrl = (old: string) => {
-    let cleanUrl = old.trim();
-    if (!/^https?:\/\//i.test(cleanUrl)) {
-        cleanUrl = `https://${cleanUrl}`
-    }
-    return cleanUrl;
-}
-async function getUrl(long: string) {
+/**
+ * Function that calls API function and  handles reactive variables for UI/UX
+ * to set DOM elements texts with new links or messages 
+ * @param long - the long link you want to shorten
+ * @author Oriol Plazas León
+ * @since 02/04/2026
+ * @see cleanUrl()
+ * @see shortenUrl()
+ */
+const getUrl = async (link: string) => {
     try {
+        //start loading
         isLoading.value = true;
         errorMsg.value = '';
         newUrl.value = '';
-        const cleanedUrl = cleanUrl(long)
+        const cleanedUrl = cleanUrl(link)
         newUrl.value = await shortenUrl(cleanedUrl)
     } catch (e: any) {
         errorMsg.value = e.message;
     } finally {
+        //New url or new message got so stop loading
         isLoading.value = false
     }
 }
