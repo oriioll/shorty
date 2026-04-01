@@ -17,10 +17,7 @@ import ShortyFooter from './components/ShortyFooter.vue';
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 100vh;
-}
-
-header {
-  height: 100px;
+  max-height: 100vh;
+  min-height: 100vh;
 }
 </style>
