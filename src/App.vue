@@ -1,7 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Hero from './components/Hero.vue';
+
+</script>
 
 <template>
-  <h1>shortener</h1>
+  <Hero></Hero>
 </template>
 
 <style scoped></style>
