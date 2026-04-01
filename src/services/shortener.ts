@@ -1,4 +1,4 @@
-const TOKEN: string = 'G3E0s8s6n8k2y3rCK7yEwyi1ARe4trjFGJMbRLluDP6ll2u4F5Ef2ppl3C2G'
+const TOKEN: string = import.meta.env.VITE_TINYURL_TOKEN
 const URL: string = 'https://api.tinyurl.com/create'
 
 export async function shortenUrl(longUrl: string): Promise<string> {
