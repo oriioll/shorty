@@ -63,7 +63,7 @@ const changeSvg = (): void => {
 }
 
 .newUrlDiv {
-    padding: 0.25rem 0.75rem;
+    padding: .5rem 0.75rem;
     border: solid 2px var(--accent);
     border-radius: var(--radius);
     background-color: var(--bg-surface);
@@ -75,7 +75,7 @@ const changeSvg = (): void => {
 }
 
 .copied {
-    padding: 0.25rem 0.75rem;
+    padding: .5rem 0.75rem;
     border-radius: var(--radius);
     background-color: var(--bg-surface);
     display: flex;
