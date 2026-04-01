@@ -6,7 +6,7 @@
  * @since 02/04/2026
  */
 export const cleanUrl = (old: string): string => {
-  let cleanUrl: string = old.trim()
+  let cleanUrl: string = old.trim().toLowerCase()
   if (!/^https?:\/\//i.test(cleanUrl)) {
     cleanUrl = `https://${cleanUrl}`
   }
