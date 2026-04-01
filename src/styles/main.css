@@ -10,6 +10,7 @@
     --text-muted: #94a3b8;
     --error: #f43f5e;
     --success: #10b981;
+    --font-primary: 'Poppins', sans-serif;
     --step-n1: 0.8rem;
     --step-0: 1rem;
     --step-1: 1.25rem;
@@ -26,7 +27,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-primary);
     background-color: var(--bg-dark);
     color: var(--text-main);
     line-height: 1.5;
