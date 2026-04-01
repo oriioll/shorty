@@ -14,6 +14,8 @@ const cleanUrl = (old: string) => {
 }
 async function getUrl(long: string) {
     try {
+        errorMsg.value = '';
+        newUrl.value = '';
         const cleanedUrl = cleanUrl(long)
         newUrl.value = await shortenUrl(cleanedUrl)
     } catch (e: any) {
@@ -27,7 +29,7 @@ async function getUrl(long: string) {
     <main>
         <h1>Shorty - Your fast URL shortener</h1>
         <h3>Paste your long link and get a shorted one in seconds.</h3>
-        <form @submit.prevent="getUrl(oldUrl)">
+        <form @input="errorMsg = ''" @submit.prevent="getUrl(oldUrl)">
             <input v-model="oldUrl" type="text" placeholder="Type your URL...">
             <button type="submit" aria-label="Shorten Url">
                 <span id="btnText">Shorten</span>
@@ -37,6 +39,8 @@ async function getUrl(long: string) {
                 </svg>
             </button>
         </form>
+        <p class="newUrl" v-if="newUrl"><a class="newUrl" :href="newUrl" target="_blank">{{ newUrl }}</a></p>
+        <p id="errorMsg" v-if="errorMsg">{{ errorMsg }}</p>
     </main>
 
 </template>
@@ -110,6 +114,19 @@ button svg {
 
 #btnText {
     display: none;
+}
+
+#errorMsg {
+    color: var(--error);
+    font-weight: 600;
+    padding: 1rem 0;
+}
+
+.newUrl {
+    color: var(--success);
+    font-weight: 600;
+    padding: 1rem 0;
+    text-decoration: underline;
 }
 
 @media(min-width: 800px) {
